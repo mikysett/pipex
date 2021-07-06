@@ -1,0 +1,3 @@
+[submodule "pipex/libft"]
+	path = pipex/libft
+	url = git@github.com:mikysett/libft.git

@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msessa <mikysett@gmail.com>                +#+  +:+       +#+         #
+#    By: msessa <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 11:32:44 by msessa            #+#    #+#              #
-#    Updated: 2021/07/02 13:31:56 by msessa           ###   ########.fr        #
+#    Updated: 2021/07/06 18:06:56 by msessa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# MAKEFLAGS	+=	--quiet
+MAKEFLAGS	+=	--quiet
 
 WHT	= \033[0;37m
 BLK	= \033[0;30m
@@ -21,6 +21,8 @@ GRN	= \033[0;32m
 
 NAME	=	pipex
 
+LIBFT	=	libft/libft
+
 HEADERS	=	headers
 
 DIR_S	=	srcs
@@ -28,9 +30,15 @@ DIR_S	=	srcs
 DIR_O	=	obj
 
 # Using wildcards: $(shell find $(DIR_S) -name *.c)
-SRCS	:=	$(shell find $(DIR_S) -name *.c)
+BASIC_SRCS	:=	$(shell find $(DIR_S) -name *.c)
 
-OBJS	:= $(SRCS:%.c=$(DIR_O)/%.o)
+SRCS		:= $(BASIC_SRCS)
+
+BONUS_SRCS	:= $(BASIC_SRCS)
+
+OBJS		:= $(SRCS:%.c=$(DIR_O)/%.o)
+
+BONUS_OBJS	:= $(BONUS_SRCS:%.c=$(DIR_O)/%.o)
 
 SUB_DIR_O := $(shell find $(DIR_S) -type d)
 SUB_DIR_O := $(SUB_DIR_O:%=$(DIR_O)/%)
@@ -42,9 +50,9 @@ CC		=	gcc
 
 CFLAGS	=	-Wall -Wextra -fsanitize=address
 
-INCLUDES	= -I $(HEADERS)
+INCLUDES	= -I $(HEADERS) -I $(LIBFT)
 
-LIBS	=	
+LIBS	=	-L./$(LIBFT) -lft
 
 RM		=	rm -f
 
@@ -54,20 +62,29 @@ $(DIR_O)/%.o: %.c
 			$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
 $(NAME):	$(DEPS) $(OBJS)
+			@make $(FAST)bonus -C $(LIBFT)
 			$(CC) $(CFLAGS) $(INCLUDES) -o $(NAME) $(OBJS) $(LIBS)
 			printf "$(WHT)[$(GRN)$(NAME) COMPILED$(WHT)]\n"
 
 all:		$(NAME)
 
-clean:		
+bonus:		OBJS = $(BONUS_OBJS)
+bonus:		all
+			printf "$(WHT)[$(GRN)$(NAME) BONUS COMPILED$(WHT)]\n"
+
+miniclean:
 			$(RM) $(OBJS)
 			$(RM) $(BOBJS)
 			printf "$(WHT)[$(YEL)$(NAME) OBJS REMOVED$(WHT)]\n"
 
-fclean:		clean
+clean:		miniclean
+			@make clean -C $(LIBFT)
+
+fclean:		miniclean
 			$(RM) $(NAME)
+			@make fclean -C $(LIBFT)
 			printf "$(WHT)[$(YEL)$(NAME) BINARIES REMOVED$(WHT)]\n"
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		all bonus miniclean clean fclean re

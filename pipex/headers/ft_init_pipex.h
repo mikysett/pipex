@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_init_pipex.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:29:10 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/06 18:06:31 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/06 18:06:21 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-#define PIPEX_H
+#ifndef FT_INIT_PIPEX_H
+#define FT_INIT_PIPEX_H
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <sys/wait.h>
-# include <stdio.h>
-# include <string.h>
-# include <stdbool.h>
+t_pipex	*ft_init_pipex(int argc, char **argv, char **envp);
+t_pipex	*ft_calloc_pipex(void);
+void	ft_set_env(t_pipex *pipex, char **envp);
+void	ft_set_cmd(t_pipex *pipex, char **argv);
+void	ft_set_files(t_pipex *pipex, int argc, char **argv);
+void	ft_init_filein_fd(t_pipex *pipex);
+void	ft_init_pipe_fd(t_pipex *pipex);
 
-# include "libft.h"
-# include "ft_types.h"
-# include "ft_init_pipex.h"
-
-// main.c
-void	ft_free_exit_failure(t_pipex *pipex, char *msg);
-void	ft_set_pipe(t_pipex *pipex);
-
+// ft_init_pipex_util.c
+void	ft_set_nb_cmd(t_pipex *pipex, int argc, char **argv);
+void	ft_set_here_doc(t_pipex *pipex, int argc, char **argv);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: msessa <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 11:32:44 by msessa            #+#    #+#              #
-#    Updated: 2021/07/06 18:06:56 by msessa           ###   ########.fr        #
+#    Updated: 2021/07/08 17:25:13 by msessa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,6 @@ DEPS	=	$(shell find $(HEADERS) -name *.h)
 CC		=	gcc
 
 CFLAGS	=	-Wall -Wextra -fsanitize=address
-
 INCLUDES	= -I $(HEADERS) -I $(LIBFT)
 
 LIBS	=	-L./$(LIBFT) -lft

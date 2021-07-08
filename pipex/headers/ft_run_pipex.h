@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_run_pipex.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:29:10 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/08 17:46:12 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/08 17:45:38 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-#define PIPEX_H
+#ifndef FT_RUN_PIPEX_H
+#define FT_RUN_PIPEX_H
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <sys/wait.h>
-# include <stdio.h>
-# include <string.h>
-# include <stdbool.h>
-
-# include "libft.h"
-# include "ft_types.h"
-# include "ft_pipex_util.h"
-# include "ft_init_pipex.h"
-# include "ft_run_pipex.h"
-# include "ft_run_cmd.h"
+void	ft_run_pipex(t_pipex *pipex);
+void	ft_set_cmd_pipes(t_pipex *pipex, int cmd_index);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:55 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/06 17:19:52 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/08 16:07:23 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ t_pipex	*ft_init_pipex(int argc, char **argv, char **envp)
 	ft_set_here_doc(pipex, argc, argv);
 	ft_set_cmd(pipex, argv);
 	ft_set_files(pipex, argc, argv);
-	ft_init_filein_fd(pipex);
-	ft_init_pipe_fd(pipex);
+	pipex->filein_fd = ft_init_file_fd(pipex->filein, O_RDONLY, 0);
+	pipex->fileout_fd = ft_init_file_fd(pipex->fileout,
+		O_CREAT | O_TRUNC | O_WRONLY, 0666);
 	return (pipex);
 }
 
@@ -48,6 +49,8 @@ void	ft_set_cmd(t_pipex *pipex, char **argv)
 		pipex->cmd = argv + 3;
 	else
 		pipex->cmd = argv + 2;
+	pipex->cmd_info.path = NULL;
+	pipex->cmd_info.argv = NULL;
 }
 
 void	ft_set_files(t_pipex *pipex, int argc, char **argv)
@@ -57,23 +60,4 @@ void	ft_set_files(t_pipex *pipex, int argc, char **argv)
 	else
 		pipex->filein = argv[1];
 	pipex->fileout = argv[argc - 1];
-}
-
-void	ft_init_filein_fd(t_pipex *pipex)
-{
-	pipex->filein_fd = open(pipex->filein, O_RDONLY);
-	if (pipex->filein_fd == -1)
-	{
-		perror(pipex->filein);
-		ft_free_exit_failure(pipex, NULL);
-	}
-}
-
-void	ft_init_pipe_fd(t_pipex *pipex)
-{
-	if (pipe(pipex->pipe_fd) == -1)
-	{
-		perror("pipex");
-		ft_free_exit_failure(pipex, NULL);
-	}
 }

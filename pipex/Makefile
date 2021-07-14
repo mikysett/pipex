@@ -6,7 +6,7 @@
 #    By: msessa <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 11:32:44 by msessa            #+#    #+#              #
-#    Updated: 2021/07/08 17:25:13 by msessa           ###   ########.fr        #
+#    Updated: 2021/07/13 22:38:51 by msessa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,18 @@ DIR_S	=	srcs
 DIR_O	=	obj
 
 # Using wildcards: $(shell find $(DIR_S) -name *.c)
-BASIC_SRCS	:=	$(shell find $(DIR_S) -name *.c)
+BASIC_SRCS	:=	srcs/ft_init_pipex.c \
+				srcs/ft_pipex_util.c \
+				srcs/ft_run_cmd.c \
+				srcs/ft_run_pipex.c \
+				srcs/main.c
 
-SRCS		:= $(BASIC_SRCS)
+SRCS		:= $(BASIC_SRCS) \
+				srcs/no_bonus/ft_init_pipex_util.c
+		
 
-BONUS_SRCS	:= $(BASIC_SRCS)
+BONUS_SRCS	:= $(BASIC_SRCS) \
+				srcs/bonus/ft_init_pipex_util.c
 
 OBJS		:= $(SRCS:%.c=$(DIR_O)/%.o)
 
@@ -67,8 +74,13 @@ $(NAME):	$(DEPS) $(OBJS)
 
 all:		$(NAME)
 
-bonus:		OBJS = $(BONUS_OBJS)
-bonus:		all
+# bonus:		OBJS = $(BONUS_OBJS)
+# bonus:		all
+# 			printf "$(WHT)[$(GRN)$(NAME) BONUS COMPILED$(WHT)]\n"
+
+bonus:		$(DEPS) $(BONUS_OBJS)
+			@make $(FAST)bonus -C $(LIBFT)
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(NAME) $(BONUS_OBJS) $(LIBS)
 			printf "$(WHT)[$(GRN)$(NAME) BONUS COMPILED$(WHT)]\n"
 
 miniclean:

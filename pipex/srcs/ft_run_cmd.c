@@ -6,7 +6,7 @@
 /*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:55 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/08 17:23:03 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/13 22:38:29 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,6 @@ void	ft_run_cmd(t_pipex *pipex, int cmd_i)
 		{
 			perror("pipex");
 			ft_free_exit_failure(pipex, NULL);
-		}
-		// TODO this may show an error message with "success"
-		if (!WIFEXITED(wstatus) || WEXITSTATUS(wstatus) != EXIT_SUCCESS)
-		{
-			perror("wstatus");
-			// ft_free_exit_failure(pipex, NULL);
 		}
 	}
 	ft_free_cmd_info(&pipex->cmd_info);

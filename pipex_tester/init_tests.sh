@@ -30,6 +30,11 @@ cmd_pipex+=("$pipex_pathname wrong_infile@àà# cat wc fileout")
 filein+=("wrong_infile@àà#")
 fileout+=("fileout")
 
+cmd_original+=("< filein cat | wc > fileout_invalid_çàç@\\/&%")
+cmd_pipex+=("$pipex_pathname filein cat wc fileout_invalid_çàç@\\/&%")
+filein+=("filein")
+fileout+=("fileout_invalid_çàç@\\/&%")
+
 cmd_original+=("< filein cmd_invalid | wc > fileout")
 cmd_pipex+=("$pipex_pathname filein cmd_invalid wc fileout")
 filein+=("filein")
@@ -82,5 +87,10 @@ fileout+=("fileout")
 
 cmd_original+=("< ls_info cat | grep .sh | wc -l > fileout")
 cmd_pipex+=("$pipex_pathname ls_info cat \"grep .sh\" \"wc -l\" fileout")
+filein+=("ls_info")
+fileout+=("fileout")
+
+cmd_original+=("< ls_info cat | grep .sh | sort -r | cat > fileout")
+cmd_pipex+=("$pipex_pathname ls_info cat \"grep .sh\" \"sort -r\" cat fileout")
 filein+=("ls_info")
 fileout+=("fileout")

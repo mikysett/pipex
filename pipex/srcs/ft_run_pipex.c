@@ -6,7 +6,7 @@
 /*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:28:53 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/14 01:39:01 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/14 11:52:12 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_run_pipex(t_pipex *p)
 		if (ft_init_io(p, i))
 		{
 			ft_run_cmd(p, i);
-			ft_close_io(p, i);
+			ft_close_io(p);
 		}
 		i++;
 	}

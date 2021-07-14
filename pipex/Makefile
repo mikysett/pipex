@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msessa <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: msessa <mikysett@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 11:32:44 by msessa            #+#    #+#              #
-#    Updated: 2021/07/13 22:38:51 by msessa           ###   ########.fr        #
+#    Updated: 2021/07/14 20:09:52 by msessa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,11 +37,13 @@ BASIC_SRCS	:=	srcs/ft_init_pipex.c \
 				srcs/main.c
 
 SRCS		:= $(BASIC_SRCS) \
-				srcs/no_bonus/ft_init_pipex_util.c
+				srcs/no_bonus/ft_init_pipex_util.c \
+				srcs/no_bonus/ft_set_first_read_pipe.c
 		
 
 BONUS_SRCS	:= $(BASIC_SRCS) \
-				srcs/bonus/ft_init_pipex_util.c
+				srcs/bonus/ft_init_pipex_util.c \
+				srcs/no_bonus/ft_set_first_read_pipe.c
 
 OBJS		:= $(SRCS:%.c=$(DIR_O)/%.o)
 

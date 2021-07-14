@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_types.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:29:10 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/08 17:38:50 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/14 19:35:26 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct	s_pipex
 	bool		here_doc;
 	char		*limiter;
 	char		**env;
+	char		**env_path;
 	int			pipes[2][2];
 	t_pipe_name	cmd_pipe;
 	t_pipe_name	cmd_opposite_pipe;

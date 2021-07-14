@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pipex_util.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:28:53 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/08 17:21:46 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/14 20:11:14 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,19 @@ void	ft_free_exit_failure(t_pipex *pipex, char *msg)
 {
 	if (msg)
 		ft_putstr_fd(msg, STDERR_FILENO);
+	ft_free_pipex(pipex);
+	exit(EXIT_FAILURE);
+}
+
+void	ft_free_pipex(t_pipex *pipex)
+{
 	if (pipex)
 	{
 		ft_free_cmd_info(&pipex->cmd_info);
+		if (pipex->env_path)
+			ft_free_str_arr(pipex->env_path);
 		free(pipex);
 	}
-	exit(EXIT_FAILURE);
 }
 
 void	ft_free_cmd_info(t_cmd_info *pipex_cmd_info)

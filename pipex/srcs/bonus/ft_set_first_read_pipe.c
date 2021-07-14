@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_run_cmd.h                                       :+:      :+:    :+:   */
+/*   ft_set_first_read_pipe.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 13:29:10 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/14 20:01:38 by msessa           ###   ########.fr       */
+/*   Created: 2021/07/14 18:27:47 by msessa            #+#    #+#             */
+/*   Updated: 2021/07/14 18:30:46 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_RUN_CMD_H
-#define FT_RUN_CMD_H
+#include "pipex.h"
 
-void	ft_run_cmd(t_pipex *pipex, int cmd_i);
-void	ft_set_cmd_info(t_pipex *pipex, char *cmd_str);
-void	ft_set_cmd_path(t_pipex *p, char *cmd_name);
-void	ft_exec_cmd_info(t_pipex *pipex);
-
-#endif
+void	ft_set_first_read_pipe(t_pipex *p)
+{
+	p->pipes[p_next][p_read] = p->filein_fd;
+}

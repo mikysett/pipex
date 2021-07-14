@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_run_pipex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:28:53 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/14 11:52:12 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/14 18:34:07 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ void	ft_run_pipex(t_pipex *p)
 		}
 		i++;
 	}
-}
-
-void	ft_set_first_read_pipe(t_pipex *p)
-{
-	p->pipes[p_next][p_read] = p->filein_fd;
 }
 
 void	ft_set_cmd_pipes(t_pipex *pipex, int cmd_index)
@@ -65,20 +60,6 @@ bool	ft_init_io(t_pipex *p, int cmd_index)
 	ft_set_dup(p, p->pipes[p->cmd_pipe][p_write], STDOUT_FILENO);
 	return (true);
 }
-
-// TODO create ft_invalid_io to check for both filein and fileout invalid files
-
-// bool	ft_init_first_io(t_pipex *p)
-// {
-// 	if (p->filein_fd == STDIN_FILENO)
-// 	{
-// 		if (close(p->filein_fd) == -1
-// 			|| close(p->pipes[p->cmd_pipe][p_write]) == -1)
-// 			perror("pipex");
-// 		return (false);
-// 	}
-// 	return (true);
-// }
 
 void	ft_close_io(t_pipex *p)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_pipex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:55 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/13 23:43:45 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/14 20:02:27 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,20 @@ t_pipex	*ft_calloc_pipex(void)
 
 void	ft_set_env(t_pipex *pipex, char **envp)
 {
+	int	i;
+
+	i = 0;
 	pipex->env = envp;
+	pipex->env_path = NULL;
+	while (pipex->env[i])
+	{
+		if (!strcmp(pipex->env[i], "PATH="))
+		{
+			pipex->env_path = ft_split(&pipex->env[i][ft_strlen("PATH=")], ':');
+			break ;
+		}
+		i++;
+	}
 }
 
 void	ft_set_cmd(t_pipex *pipex, char **argv)

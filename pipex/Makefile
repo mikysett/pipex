@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msessa <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: msessa <mikysett@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 11:32:44 by msessa            #+#    #+#              #
-#    Updated: 2021/07/15 01:34:28 by msessa           ###   ########.fr        #
+#    Updated: 2021/07/15 13:59:20 by msessa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ DEPS	=	$(shell find $(HEADERS) -name *.h)
 
 CC		=	gcc
 
-CFLAGS	=	-Wall -Wextra -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror
 INCLUDES	= -I $(HEADERS) -I $(LIBFT)
 
 LIBS	=	-L./$(LIBFT) -lft

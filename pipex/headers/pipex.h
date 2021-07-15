@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:29:10 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/15 00:28:06 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 16:01:27 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,5 @@
 # include "ft_run_pipex.h"
 # include "ft_run_cmd.h"
 # include "ft_set_first_read_pipe.h"
-
-// For debugging only
-void	ft_print_str_arr(char **str_arr);
 
 #endif

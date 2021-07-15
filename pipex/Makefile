@@ -6,7 +6,7 @@
 #    By: msessa <mikysett@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 11:32:44 by msessa            #+#    #+#              #
-#    Updated: 2021/07/15 13:59:20 by msessa           ###   ########.fr        #
+#    Updated: 2021/07/15 16:15:36 by msessa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,10 +78,6 @@ $(NAME):	$(DEPS) $(OBJS)
 			printf "$(WHT)[$(GRN)$(NAME) COMPILED$(WHT)]\n"
 
 all:		$(NAME)
-
-# bonus:		OBJS = $(BONUS_OBJS)
-# bonus:		all
-# 			printf "$(WHT)[$(GRN)$(NAME) BONUS COMPILED$(WHT)]\n"
 
 bonus:		$(DEPS) $(BONUS_OBJS)
 			@make $(FAST)bonus -C $(LIBFT)

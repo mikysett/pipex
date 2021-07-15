@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:28:53 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/15 00:52:19 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 16:16:06 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,4 @@ int	main(int argc, char **argv, char **envp)
 	ft_run_pipex(pipex);
 	ft_free_pipex(pipex);
 	return (0);
-}
-
-void	ft_print_str_arr(char **str_arr)
-{
-	int	i;
-
-	i = 0;
-	printf("Printing str arr:\n");
-	if (str_arr)
-	{
-		while (str_arr[i])
-		{
-			printf("%d: %s\n", i, str_arr[i]);
-			i++;
-		}
-	}
-	printf("END OF PRINTING\n");
 }

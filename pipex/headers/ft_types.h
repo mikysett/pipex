@@ -6,40 +6,32 @@
 /*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:29:10 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/14 19:35:26 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 13:51:53 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_TYPES_H
-#define FT_TYPES_H
+# define FT_TYPES_H
 
-typedef enum	e_pipe_name
+typedef enum e_pipe_name
 {
 	p_curr = 0,
 	p_next = 1
 }				t_pipe_name;
 
-typedef enum	e_pipe_side
+typedef enum e_pipe_side
 {
 	p_read = 0,
 	p_write = 1
 }				t_pipe_side;
 
-// typedef enum	e_cmd_place
-// {
-// 	cmd_first,
-// 	cmd_curr,
-// 	cmd_next,
-// 	cmd_last
-// }				t_cmd_place;
-
-typedef struct	s_cmd_info
+typedef struct s_cmd_info
 {
 	char	*path;
 	char	**argv;
 }				t_cmd_info;
 
-typedef struct	s_pipex
+typedef struct s_pipex
 {
 	int			nb_cmd;
 	char		**cmd;
@@ -56,6 +48,5 @@ typedef struct	s_pipex
 	t_pipe_name	cmd_opposite_pipe;
 	t_cmd_info	cmd_info;
 }				t_pipex;
-
 
 #endif

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_mem.h                                      :+:      :+:    :+:   */
+/*   ft_memory_util.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:29:10 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/15 00:12:30 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 13:50:47 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_MEMORY_UTIL_H
-#define FT_MEMORY_UTIL_H
+# define FT_MEMORY_UTIL_H
 
 t_pipex	*ft_calloc_pipex(void);
 void	ft_free_exit_failure(t_pipex *pipex, char *msg);

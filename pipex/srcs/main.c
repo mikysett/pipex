@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
+/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:28:53 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/14 20:10:48 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 00:52:19 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,8 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	*pipex;
 
-	// ft_print_str_arr(envp);
 	pipex = ft_init_pipex(argc, argv, envp);
-	ft_print_str_arr(pipex->env_path);
-	if (pipex->here_doc)
-	{
-
-	}
-	else
-	{
-		ft_run_pipex(pipex);
-	}
+	ft_run_pipex(pipex);
 	ft_free_pipex(pipex);
 	return (0);
 }

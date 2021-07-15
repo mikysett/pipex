@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipex_util.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 13:29:10 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/14 23:54:11 by msessa           ###   ########.fr       */
+/*   Created: 2021/02/15 22:28:01 by msessa            #+#    #+#             */
+/*   Updated: 2021/07/15 00:28:15 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PIPEX_UTIL_H
-#define FT_PIPEX_UTIL_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
+# define BUFFER_SIZE 1024
+# include <unistd.h>
+# include <stdlib.h>
 
-void	ft_set_dup(t_pipex *pipex, int dup_from_fd, int dup_to_fd);
-void	ft_init_pipe_fd(t_pipex *pipex, int pipe_fd[2]);
-int		ft_init_file_fd(char *file, int oflag, int chmod);
+int		get_next_line(int fd, char **line);
+size_t	ft_strlen(const char *s);
+size_t	ft_partial_len(char *buf);
+int		ft_free_exit(int fd, char *buf[1025], char **line);
 
 #endif

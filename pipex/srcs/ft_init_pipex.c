@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_pipex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
+/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:55 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/14 20:02:27 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 00:18:41 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,8 @@ t_pipex	*ft_init_pipex(int argc, char **argv, char **envp)
 	ft_set_here_doc(pipex, argc, argv);
 	ft_set_cmd(pipex, argv);
 	ft_set_files(pipex, argc, argv);
-	pipex->filein_fd = ft_init_file_fd(pipex->filein, O_RDONLY, 0);
-	pipex->fileout_fd = ft_init_file_fd(pipex->fileout,
-		O_CREAT | O_TRUNC | O_WRONLY, 0666);
-	return (pipex);
-}
+	ft_init_io_fd(pipex);
 
-t_pipex	*ft_calloc_pipex(void)
-{
-	t_pipex	*pipex;
-
-	pipex = ft_calloc(1, sizeof(t_pipex));
-	if (!pipex)
-		ft_free_exit_failure(pipex, "pipex: can't allocate memory\n");
 	return (pipex);
 }
 
@@ -47,9 +36,9 @@ void	ft_set_env(t_pipex *pipex, char **envp)
 	pipex->env_path = NULL;
 	while (pipex->env[i])
 	{
-		if (!strcmp(pipex->env[i], "PATH="))
+		if (!ft_strncmp(pipex->env[i], "PATH=", 5))
 		{
-			pipex->env_path = ft_split(&pipex->env[i][ft_strlen("PATH=")], ':');
+			pipex->env_path = ft_split(&pipex->env[i][5], ':');
 			break ;
 		}
 		i++;
@@ -73,4 +62,17 @@ void	ft_set_files(t_pipex *pipex, int argc, char **argv)
 	else
 		pipex->filein = argv[1];
 	pipex->fileout = argv[argc - 1];
+}
+
+void	ft_init_io_fd(t_pipex *pipex)
+{
+	if (pipex->here_doc)
+		pipex->fileout_fd = ft_init_file_fd(pipex->fileout,
+			O_CREAT | O_APPEND | O_WRONLY, 0666);
+	else
+	{
+		pipex->filein_fd = ft_init_file_fd(pipex->filein, O_RDONLY, 0);
+		pipex->fileout_fd = ft_init_file_fd(pipex->fileout,
+			O_CREAT | O_TRUNC | O_WRONLY, 0666);
+	}
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msessa <mikysett@gmail.com>                +#+  +:+       +#+         #
+#    By: msessa <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 11:32:44 by msessa            #+#    #+#              #
-#    Updated: 2021/07/14 20:09:52 by msessa           ###   ########.fr        #
+#    Updated: 2021/07/15 01:34:28 by msessa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ BASIC_SRCS	:=	srcs/ft_init_pipex.c \
 				srcs/ft_pipex_util.c \
 				srcs/ft_run_cmd.c \
 				srcs/ft_run_pipex.c \
+				srcs/ft_memory_util.c \
 				srcs/main.c
 
 SRCS		:= $(BASIC_SRCS) \
@@ -43,7 +44,9 @@ SRCS		:= $(BASIC_SRCS) \
 
 BONUS_SRCS	:= $(BASIC_SRCS) \
 				srcs/bonus/ft_init_pipex_util.c \
-				srcs/no_bonus/ft_set_first_read_pipe.c
+				srcs/bonus/ft_set_first_read_pipe.c \
+				srcs/bonus/get_next_line_bonus.c \
+				srcs/bonus/get_next_line_utils_bonus.c
 
 OBJS		:= $(SRCS:%.c=$(DIR_O)/%.o)
 
@@ -87,7 +90,7 @@ bonus:		$(DEPS) $(BONUS_OBJS)
 
 miniclean:
 			$(RM) $(OBJS)
-			$(RM) $(BOBJS)
+			$(RM) $(BONUS_OBJS)
 			printf "$(WHT)[$(YEL)$(NAME) OBJS REMOVED$(WHT)]\n"
 
 clean:		miniclean

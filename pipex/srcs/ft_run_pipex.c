@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_run_pipex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
+/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:28:53 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/14 18:34:07 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 01:03:39 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ft_run_pipex(t_pipex *p)
 	ft_set_first_read_pipe(p);
 	while (i < p->nb_cmd)
 	{
+		if (i + 1 == p->nb_cmd && p->fileout_fd == -1)
+			ft_free_exit_failure(p, NULL);
 		ft_set_cmd_pipes(p, i);
 		if (ft_init_io(p, i))
 		{
@@ -47,9 +49,9 @@ void	ft_set_cmd_pipes(t_pipex *pipex, int cmd_index)
 bool	ft_init_io(t_pipex *p, int cmd_index)
 {
 	ft_init_pipe_fd(p, p->pipes[p->cmd_pipe]);
-	if (cmd_index == 0 && p->filein_fd == STDIN_FILENO)
+	if (cmd_index == 0 && p->filein_fd == -1)
 	{
-		if (close(p->filein_fd) == -1
+		if (close(STDIN_FILENO) == -1
 			|| close(p->pipes[p->cmd_pipe][p_write]) == -1)
 			perror("pipex");
 		return (false);

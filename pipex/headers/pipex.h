@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
+/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:29:10 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/14 19:27:01 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 00:28:06 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
-#define PIPEX_H
+# define PIPEX_H
 
 # include <fcntl.h>
 # include <unistd.h>
@@ -27,6 +27,7 @@
 
 # include "libft.h"
 # include "ft_types.h"
+# include "ft_memory_util.h"
 # include "ft_pipex_util.h"
 # include "ft_init_pipex.h"
 # include "ft_run_pipex.h"

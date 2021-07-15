@@ -17,6 +17,7 @@ Compile the program with `make bonus` to use also two bonus functionalities:
  - You can add/remove or modify tests easily in `init_tests.sh`.
 
  ### Disclaimer
- The tester is not by any mean a complete check, it helps but must be used with caution. It doesn't check memory leaks and it doesn't account for every possible scenario.
- I encourage you to add more tests and test files and give feedback about possible new tests implementation.
+ - The tester is not by any mean a complete check, it helps but must be used with caution. It doesn't check memory leaks and it doesn't account for every possible scenario.
+ - The tester do not test `here_doc` bonus behaviour.
+ - I encourage you to add more tests and test files and give feedback about possible new tests implementation.
 

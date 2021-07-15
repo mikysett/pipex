@@ -1,20 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipex_util.h                                    :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 13:29:10 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/14 23:54:11 by msessa           ###   ########.fr       */
+/*   Created: 2021/02/15 22:28:06 by msessa            #+#    #+#             */
+/*   Updated: 2021/07/15 01:06:40 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PIPEX_UTIL_H
-#define FT_PIPEX_UTIL_H
+#include "bonus/get_next_line_bonus.h"
 
-void	ft_set_dup(t_pipex *pipex, int dup_from_fd, int dup_to_fd);
-void	ft_init_pipe_fd(t_pipex *pipex, int pipe_fd[2]);
-int		ft_init_file_fd(char *file, int oflag, int chmod);
+int		ft_free_exit(int fd, char *buf[1025], char **line)
+{
+	free(buf[fd]);
+	free(*line);
+	buf[fd] = 0;
+	*line = 0;
+	return (-1);
+}
 
-#endif
+size_t	ft_partial_len(char *buf)
+{
+	char *o_buf;
+
+	o_buf = buf;
+	while (*buf && *buf != '\n')
+		buf++;
+	return (buf - o_buf);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	const char *i;
+
+	i = s;
+	while (*i)
+		i++;
+	return (i - s);
+}

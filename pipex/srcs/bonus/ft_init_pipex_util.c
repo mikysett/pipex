@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_pipex_util.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:31:50 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/14 23:01:57 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 13:35:29 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_set_nb_cmd(t_pipex *pipex, int argc, char **argv)
 			ft_free_exit_failure(pipex,
 				"pipex: wrong argument number for here_doc\n");
 	}
-	else 
+	else
 		pipex->nb_cmd = argc - 3;
 }
 

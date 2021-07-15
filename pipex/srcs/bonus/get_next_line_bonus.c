@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 22:25:06 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/15 01:06:49 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 13:37:35 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*ft_update_line(char *buf, char *line)
 	i = 0;
 	j = 0;
 	buf_chunk = ft_partial_len(buf);
-	line_len = *line ? ft_strlen(line) : 0;
+	line_len = ft_strlen(line);
 	bigger_line = malloc(sizeof(char) * (line_len + buf_chunk + 1));
 	if (!bigger_line)
 		return (0);
@@ -92,9 +92,9 @@ static int	ft_update_outputs(int fd, char *buf[1025], char **line)
 	return (0);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	static char	*buf[1025] = { 0 };
+	static char	*buf[1025] = {0};
 	int			read_out;
 	int			update;
 

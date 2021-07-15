@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 22:28:06 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/15 01:06:40 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 13:42:27 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bonus/get_next_line_bonus.h"
 
-int		ft_free_exit(int fd, char *buf[1025], char **line)
+int	ft_free_exit(int fd, char *buf[1025], char **line)
 {
 	free(buf[fd]);
 	free(*line);
@@ -23,7 +23,7 @@ int		ft_free_exit(int fd, char *buf[1025], char **line)
 
 size_t	ft_partial_len(char *buf)
 {
-	char *o_buf;
+	char	*o_buf;
 
 	o_buf = buf;
 	while (*buf && *buf != '\n')
@@ -33,7 +33,7 @@ size_t	ft_partial_len(char *buf)
 
 size_t	ft_strlen(const char *s)
 {
-	const char *i;
+	const char	*i;
 
 	i = s;
 	while (*i)

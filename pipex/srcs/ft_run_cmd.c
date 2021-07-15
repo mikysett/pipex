@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_run_cmd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:55 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/14 23:49:19 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 13:43:41 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ft_set_cmd_path(t_pipex *p, char *cmd_name)
 void	ft_exec_cmd_info(t_pipex *pipex)
 {
 	if (execve(pipex->cmd_info.path,
-		pipex->cmd_info.argv, pipex->env) == -1)
+			pipex->cmd_info.argv, pipex->env) == -1)
 	{
 		perror(pipex->cmd_info.path);
 		ft_free_exit_failure(pipex, NULL);

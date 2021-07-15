@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_pipex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:55 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/15 00:18:41 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 13:42:47 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_pipex	*ft_init_pipex(int argc, char **argv, char **envp)
 	ft_set_cmd(pipex, argv);
 	ft_set_files(pipex, argc, argv);
 	ft_init_io_fd(pipex);
-
 	return (pipex);
 }
 
@@ -68,11 +67,11 @@ void	ft_init_io_fd(t_pipex *pipex)
 {
 	if (pipex->here_doc)
 		pipex->fileout_fd = ft_init_file_fd(pipex->fileout,
-			O_CREAT | O_APPEND | O_WRONLY, 0666);
+				O_CREAT | O_APPEND | O_WRONLY, 0666);
 	else
 	{
 		pipex->filein_fd = ft_init_file_fd(pipex->filein, O_RDONLY, 0);
 		pipex->fileout_fd = ft_init_file_fd(pipex->fileout,
-			O_CREAT | O_TRUNC | O_WRONLY, 0666);
+				O_CREAT | O_TRUNC | O_WRONLY, 0666);
 	}
 }

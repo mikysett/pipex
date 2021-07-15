@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_set_first_read_pipe.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msessa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 18:27:47 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/15 01:34:38 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/15 13:35:46 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	ft_save_user_input(t_pipex *p)
 			if (close(STDIN_FILENO) == -1)
 				perror("pipex");
 			free(line);
-			break;
+			break ;
 		}
 		write(p->pipes[p_curr][p_write], line, ft_strlen(line));
 		write(p->pipes[p_curr][p_write], "\n", 1);

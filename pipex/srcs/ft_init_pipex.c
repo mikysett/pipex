@@ -6,7 +6,7 @@
 /*   By: msessa <mikysett@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:55 by msessa            #+#    #+#             */
-/*   Updated: 2021/07/15 13:42:47 by msessa           ###   ########.fr       */
+/*   Updated: 2021/07/30 16:49:11 by msessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,11 @@ void	ft_init_io_fd(t_pipex *pipex)
 {
 	if (pipex->here_doc)
 		pipex->fileout_fd = ft_init_file_fd(pipex->fileout,
-				O_CREAT | O_APPEND | O_WRONLY, 0666);
+				O_CREAT | O_APPEND | O_WRONLY, 0644);
 	else
 	{
 		pipex->filein_fd = ft_init_file_fd(pipex->filein, O_RDONLY, 0);
 		pipex->fileout_fd = ft_init_file_fd(pipex->fileout,
-				O_CREAT | O_TRUNC | O_WRONLY, 0666);
+				O_CREAT | O_TRUNC | O_WRONLY, 0644);
 	}
 }
